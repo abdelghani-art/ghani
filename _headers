@@ -1,0 +1,16 @@
+# Cloudflare Pages custom headers (ignored by GitHub Pages, harmless there)
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Frame-Options: SAMEORIGIN
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+
+# Images rarely change: cache for 30 days
+/assets/img/*
+  Cache-Control: public, max-age=2592000
+
+# CSS/JS: cache 1 day, then revalidate (file names are not hashed)
+/assets/css/*
+  Cache-Control: public, max-age=86400, must-revalidate
+/assets/js/*
+  Cache-Control: public, max-age=86400, must-revalidate
